@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost/lab2/CSS/views.css">
     <title>Document</title>
 </head>
-<body>
+<body style="background: #6BB6FF">
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if($_POST["num_habitacion"] == ""){
@@ -35,8 +36,8 @@
     }
     ?>
     <br />  
-        <div class="container" style="width:500px;">  
-            <h3 align="">Lista de Huespedes: </h3><br />                 
+        <div class="container2" style="width:500px;">  
+            <h3 align="">Reservas: </h3><br />                 
             <div class="table-responsive">  
                     <table class="table table-striped">  
                         <tr>  

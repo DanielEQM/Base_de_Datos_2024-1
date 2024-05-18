@@ -4,11 +4,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if($_POST["num_habitacion"] == "" or $_POST["fecha_check_in"] == "" or $_POST["fecha_check_out"] == ""){
         $mess = urldecode("Falta un dato");
         header("Location: registro.php ?message=" . $mess);
+        die();
     }
     $rut = $_POST["rut"];
     $num_habitacion = $_POST["num_habitacion"];
     $fecha_check_in = $_POST["fecha_check_in"];
     $fecha_check_out = $_POST["fecha_check_out"];
+
+    if($fecha_check_out < $fecha_check_in){
+        $mess = urldecode("Fecha mal ingresada");
+        header("Location: registro.php ?message=" . $mess);
+        die();
+    }
 
     try {
         require_once "../dbh.inc.php";

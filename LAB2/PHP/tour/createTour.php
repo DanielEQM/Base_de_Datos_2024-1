@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>   
+<head>
+    <link rel="stylesheet" href="http://localhost/lab2/CSS/views.css">
+</head>
+<body style="background: #6BB6FF">
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if($_POST["rut"] == ""){
-        $mess = urldecode("Falta un dato");
-        header("Location: registro.php". "?message=" . $mess);
+        $mess = urldecode("No hay Rut");
+        header("Location: tour.php ?message=".$mess);
     }
     $rut = $_POST["rut"];
 
@@ -25,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         die("Query failed: " . $e->getMessage());
     }
 }
-else if(isset($_GET['rut'])){
+else if (isset($_GET['rut'])) {
     $rut = $_GET['rut'];
     try {
         require_once "../dbh.inc.php";
@@ -44,12 +47,12 @@ else if(isset($_GET['rut'])){
     }
 }
 else {
-    header("Location: registro.php");
+    header("Location: tour.php");
 }
 ?>
 <br />  
-    <div class="container" style="width:500px;">  
-    <h3 align="">Lista de Huespedes: </h3><br />                 
+    <div class="container2" style="width:500px;">  
+    <h3 align="">Habitaciones del Huesped: </h3><br />                 
         <div class="table-responsive">  
             <table class="table table-striped">  
                 <tr>  
@@ -79,46 +82,44 @@ else {
         </div>  
     </div>  
 <br />
-<h2> Actualizar Reserva: </h2>
-<h4> Reserva a modificar: </h2>
-    <form method="post" action="update.inc.php">
-        <input type="hidden" name="rut" value="<?php echo $rut ?>" />
-        N° Habitación: <input type="text" name="num_habitacion">
-        <br>
-        Fecha check in: <input type="text" name="fecha_check_in">
-        <br>
-        Fecha check out: <input type="text" name="fecha_check_out">
-        <br>
-        <h4> Nuevos datos: </h4>
-        N° Habitación: <input type="text" name="new_num_habitacion">
-        <br>
-        Fecha check in: <input type="text" name="new_fecha_check_in">
-        <br>
-        Fecha check out: <input type="text" name="new_fecha_check_out">
-        <br>
-        <button> Modificar </button>
-    </form>
-    <h2> Borrar huesped: </h2>
-    <form method="post" action="delete.inc.php">
-        <input type="hidden" name="rut" value="<?php echo $rut ?>" />
-        N° Habitación: <input type="text" name="num_habitacion">
-        <br>
-        Fecha check in: <input type="text" name="fecha_check_in">
-        <br>
-        Fecha check out: <input type="text" name="fecha_check_out">
-        <br>
-        <button> Eliminar </button>
-    </form>
+<form method="post" action="reservartour.inc.php">
+    <input type="hidden" name="rut" value="<?php echo $rut ?>" />
+    N° Habitación: <br><input type="text" name="num_habitacion">
     <br>
+    Fecha check in: <br><input type="text" name="fecha_check_in">
+    <br>
+    Fecha check out: <br><input type="text" name="fecha_check_out">
+    <br>
+    Id del tour: <br><input type="text" name="tours_id">
+    <br><br>
+    <button> Reservar </button>
     <?php
-    if(isset($_GET['message'])){
+    if (isset($_GET['message'])){
         echo $_GET['message'];
     }
     ?>
+</form>
+
+<br>
+<h1> Cancelar Reserva </h1>
+<form method="post" action="deletetour.php">
+    <input type="hidden" name="rut" value="<?php echo $rut ?>" />
+    N° Habitación: <br><input type="text" name="num_habitacion">
     <br>
+    Fecha check in: <br><input type="text" name="fecha_check_in">
     <br>
-    <form method="post" action="registro.php">
-        <button> Volver </button>
-    </form>
+    Fecha check out: <br><input type="text" name="fecha_check_out">
+    <br><br>
+    <button> Revisar </button>
+    <?php
+    if (isset($_GET['message2'])){
+        echo $_GET['message2'];
+    }
+    ?>
+</form>
+<br><br>
+<form method="post" action="tour.php">
+    <button> Volver </button>
+</form>
 </body>
 </html>

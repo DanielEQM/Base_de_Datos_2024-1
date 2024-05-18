@@ -5,6 +5,6 @@
 		$uri = 'http://';
 	}
 	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/lab2/inicio/main.php');
+	header('Location: '.$uri.'/lab2/PHP/main.php');
 	exit;
 ?>

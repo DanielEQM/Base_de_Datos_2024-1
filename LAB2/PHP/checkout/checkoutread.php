@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>   
+<head>
+    <link rel="stylesheet" href="http://localhost/lab2/CSS/views.css">
+</head>
+<body style="background: #6BB6FF">
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -49,8 +52,8 @@ else {
 }
 ?>
 <br />  
-    <div class="container" style="width:500px;">  
-    <h3 align="">Lista de Huespedes: </h3><br />                 
+    <div class="container2" style="width:500px;">  
+    <h3 align="">Habitaciones del Huesped: </h3><br />                 
         <div class="table-responsive">  
             <table class="table table-striped">  
                 <tr>  
@@ -82,15 +85,15 @@ else {
     <br>
     <form method="post" action="checkout.inc.php">
     <input type="hidden" name="rut" value="<?php echo $rut ?>" />
-    N° Habitación: <input type="text" name="num_habitacion">
+    N° Habitación: <br><input type="text" name="num_habitacion">
     <br>
-    Fecha check in: <input type="text" name="fecha_check_in">
+    Fecha check in: <br><input type="text" name="fecha_check_in">
     <br>
     <h3>Retiro:</h3>
-    Fecha check out: <input type="text" name="fecha_check_out">
+    Fecha check out: <br><input type="text" name="fecha_check_out">
     <br>
-    Puntuación: <input type="text" name="stars">
-    <br>
+    Puntuación: <br><input type="text" name="stars">
+    <br><br>
     <button> Chech Out </button>
     <?php
     if (isset($_GET['message'])){

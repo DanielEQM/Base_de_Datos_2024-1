@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost/lab2/css/barra_busqueda.css">
     <title>Document</title>
 </head>
 <body>
-    <h1> Bienvenido, a continuacion reserve al huesped: </h1>
+    <h1> Crear reserva del huesped: </h1>
     <form method="post" action="create.inc.php">
-        Rut: <input type="text" name="rut">
+        Rut: <br><input type="text" name="rut">
         <br>
-        N° Habitación: <input type="text" name="num_habitacion">
+        N° Habitación: <br><input type="text" name="num_habitacion">
         <br>
-        Fecha check in: <input type="text" name="fecha_check_in">
+        Fecha check in: <br><input type="text" name="fecha_check_in">
         <br>
-        Fecha check out: <input type="text" name="fecha_check_out">
+        Fecha check out: <br><input type="text" name="fecha_check_out">
+        <br>
         <br>
         <button> Crear </button>
         <?php

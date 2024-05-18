@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>  
+<head>
+    <link rel="stylesheet" href="http://localhost/lab2/CSS/views.css">
+</head>
+<body style="background: #6BB6FF">
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if($_POST["num_habitacion"] == "" or $_POST["fecha_check_in"] == "" or $_POST["fecha_check_out"] == ""){
@@ -53,8 +56,8 @@ else {
 }
 ?>
 <br />  
-    <div class="container" style="width:500px;">  
-    <h3 align="">Lista de Huespedes: </h3><br />                 
+    <div class="container2" style="width:500px;">  
+    <h3 align="">Tours del Huesped: </h3><br />                 
         <div class="table-responsive">  
             <table class="table table-striped">  
                 <tr>  
